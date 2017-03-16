@@ -65,10 +65,14 @@ get_recordid() {
 }
 
 query_recordid() {
+
     send_request "DescribeSubDomainRecords" "SignatureMethod=HMAC-SHA1&SignatureNonce=$timestamp&SignatureVersion=1.0&SubDomain=$gdddns_name.$gdddns_domain&Timestamp=$timestamp"
 }
 
 update_record() {
+    curl -kLsX PUT -H "Authorization: sso-key $gdddns_ak:$gdddns_sk" \
+        -H "Content-type: application/json" "https://api.godaddy.com/v1/domains/$gdddns_domain/records/${Type}/$gdddns_name" \
+        -d "{\"data\":\"${PublicIP}\",\"ttl\":${TTL}}" 2>/dev/null)
     send_request "UpdateDomainRecord" "RR=$gdddns_name&RecordId=$1&SignatureMethod=HMAC-SHA1&SignatureNonce=$timestamp&SignatureVersion=1.0&TTL=$gdddns_ttl&Timestamp=$timestamp&Type=A&Value=$ip"
 }
 
