@@ -177,7 +177,7 @@ function menu_hook(title, tab) {
 }
 
 function reload_Soft_Center(){
-location.href = "/Main_Soft_center.asp";
+	location.href = "/Main_Soft_center.asp";
 }
 
 function buildswitch(){
