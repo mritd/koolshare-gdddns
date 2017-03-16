@@ -60,44 +60,19 @@ send_request() {
     curl -s "http://alidns.aliyuncs.com/?$args&Signature=$(enc "$hash")"
 }
 
-get_recordid() {
-    grep -Eo '"RecordId":"[0-9]+"' | cut -d':' -f2 | tr -d '"'
-}
-
-query_recordid() {
-
-    send_request "DescribeSubDomainRecords" "SignatureMethod=HMAC-SHA1&SignatureNonce=$timestamp&SignatureVersion=1.0&SubDomain=$gdddns_name.$gdddns_domain&Timestamp=$timestamp"
-}
 
 update_record() {
     curl -kLsX PUT -H "Authorization: sso-key $gdddns_ak:$gdddns_sk" \
-        -H "Content-type: application/json" "https://api.godaddy.com/v1/domains/$gdddns_domain/records/${Type}/$gdddns_name" \
-        -d "{\"data\":\"${PublicIP}\",\"ttl\":${TTL}}" 2>/dev/null)
-    send_request "UpdateDomainRecord" "RR=$gdddns_name&RecordId=$1&SignatureMethod=HMAC-SHA1&SignatureNonce=$timestamp&SignatureVersion=1.0&TTL=$gdddns_ttl&Timestamp=$timestamp&Type=A&Value=$ip"
+        -H "Content-type: application/json" "https://api.godaddy.com/v1/domains/$gdddns_domain/records/A/$(enc "$gdddns_name")" \
+        -d "{\"data\":\"$ip\",\"ttl\":$gdddns_ttl}")
+    #send_request "UpdateDomainRecord" "RR=$gdddns_name&RecordId=$1&SignatureMethod=HMAC-SHA1&SignatureNonce=$timestamp&SignatureVersion=1.0&TTL=$gdddns_ttl&Timestamp=$timestamp&Type=A&Value=$ip"
 }
 
-add_record() {
-    send_request "AddDomainRecord&DomainName=$gdddns_domain" "RR=$gdddns_name&SignatureMethod=HMAC-SHA1&SignatureNonce=$timestamp&SignatureVersion=1.0&TTL=$gdddns_ttl&Timestamp=$timestamp&Type=A&Value=$ip"
-}
-
-if [ "$gdddns_record_id" = "" ]
-then
-    gdddns_record_id=`query_recordid | get_recordid`
-fi
-if [ "$gdddns_record_id" = "" ]
-then
-    gdddns_record_id=`add_record | get_recordid`
-    echo "added record $gdddns_record_id"
-else
-    update_record $gdddns_record_id
-    echo "updated record $gdddns_record_id"
-fi
 
 # save to file
 if [ "$gdddns_record_id" = "" ]; then
     # failed
     dbus ram gdddns_last_act="$now: failed"
 else
-    dbus ram gdddns_record_id=$gdddns_record_id
     dbus ram gdddns_last_act="$now: success($ip)"
 fi
