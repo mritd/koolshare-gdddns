@@ -194,6 +194,9 @@ function update_visibility(){
 		document.getElementById("sk_tr").style.display = "";
 		document.getElementById("interval_tr").style.display = "";
 		document.getElementById("name_tr").style.display = "";
+		document.getElementById("dns_tr").style.display = "";
+		document.getElementById("curl_tr").style.display = "";
+		document.getElementById("ttl_tr").style.display = "";
 		
 	}else{
 		document.getElementById("last_act_tr").style.display = "none";
@@ -201,6 +204,9 @@ function update_visibility(){
 		document.getElementById("sk_tr").style.display = "none";
 		document.getElementById("interval_tr").style.display = "none";
 		document.getElementById("name_tr").style.display = "none";
+		document.getElementById("dns_tr").style.display = "none";
+		document.getElementById("curl_tr").style.display = "none";
+		document.getElementById("ttl_tr").style.display = "none";
 	}
 }
 
