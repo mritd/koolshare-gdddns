@@ -46,8 +46,8 @@
                                                 <div class="SimpleNote" id="head_illustrate">
                                                     <i>
                                                     </i>
-                                                    <em>Godaddy DDNS</em>是一款基于Godaddy 云解析的私人 DDNS 解决方案。
-                                                    <a href='http://koolshare.cn/thread-64703-1-1.html' target='_blank'>
+                                                    <em>Godaddy DDNS</em> 是一款基于Godaddy 云解析的私人 DDNS 解决方案。
+                                                    <a href='https://mritd.me' target='_blank'>
                                                         <i>&nbsp;&nbsp;
                                                             <u>点击查看插件详情</u>
                                                         </i>
