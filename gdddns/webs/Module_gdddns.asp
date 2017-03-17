@@ -148,7 +148,7 @@ $(function () {
 		};
 		for(var i = 0; i< inputs.length; i++) {
 			var key = 'godddns_' + inputs[i];
-			data['godddns_' + inputs[i]] = $('#godddns_' + inputs[i]).val()
+			data[key] = $(key).val()
 		}
         $.ajax({
             type: 'POST',
