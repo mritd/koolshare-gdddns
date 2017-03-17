@@ -54,25 +54,17 @@ enc() {
     echo -n "$1" | urlencode
 }
 
-send_request() {
-    local args="AccessKeyId=$gdddns_ak&Action=$1&Format=json&$2&Version=2015-01-09"
-    local hash=$(echo -n "GET&%2F&$(enc "$args")" | openssl dgst -sha1 -hmac "$gdddns_sk&" -binary | openssl base64)
-    curl -s "http://alidns.aliyuncs.com/?$args&Signature=$(enc "$hash")"
-}
-
-
 update_record() {
     curl -kLsX PUT -H "Authorization: sso-key $gdddns_ak:$gdddns_sk" \
         -H "Content-type: application/json" "https://api.godaddy.com/v1/domains/$gdddns_domain/records/A/$(enc "$gdddns_name")" \
         -d "{\"data\":\"$ip\",\"ttl\":$gdddns_ttl}")
-    #send_request "UpdateDomainRecord" "RR=$gdddns_name&RecordId=$1&SignatureMethod=HMAC-SHA1&SignatureNonce=$timestamp&SignatureVersion=1.0&TTL=$gdddns_ttl&Timestamp=$timestamp&Type=A&Value=$ip"
 }
 
-
-# save to file
-if [ "$gdddns_record_id" = "" ]; then
-    # failed
+if [ "$ip" == "$current_ip" ];then
     dbus ram gdddns_last_act="$now: failed"
+    echo "Public IP not change!"
 else
-    dbus ram gdddns_last_act="$now: success($ip)"
+    update_record
+    dbus ram gdddns_last_act="$now: failed"
+    echo "DDNS Public IP changed!"
 fi
