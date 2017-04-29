@@ -12,7 +12,7 @@ ip=`$gdddns_curl 2>&1` || die "$ip"
 current_ip=`nslookup $gdddns_name.$gdddns_domain $gdddns_dns 2>&1`
 
 [ "$gdddns_curl" = "" ] && gdddns_curl="curl -s whatismyip.akamai.com"
-[ "$gdddns_dns" = "" ] && gdddns_dns="8.8.8.8"
+[ "$gdddns_dns" = "" ] && gdddns_dns="114.114.114.114"
 [ "$gdddns_ttl" = "" ] && gdddns_ttl="600"
 
 die () {
