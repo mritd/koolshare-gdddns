@@ -44,8 +44,7 @@
                                                 <div style="margin-left:5px;margin-top:10px;margin-bottom:10px">
                                                     <img src="/images/New_ui/export/line_export.png"></div>
                                                 <div class="SimpleNote" id="head_illustrate">
-                                                    <i>
-                                                    </i>
+                                                    <i></i>
                                                     <em>Godaddy DDNS</em> 是一款基于Godaddy 云解析的私人 DDNS 解决方案。
                                                     <a href='https://mritd.me' target='_blank'>
                                                         <i>&nbsp;&nbsp;
@@ -55,21 +54,17 @@
                                                 </div>
                                                 <table style="margin:20px 0px 0px 0px;" width="100%" border="1" align="center" cellpadding="4" cellspacing="0" bordercolor="#6b8fa3" class="FormTable">
                                                     <thead>
-                                                        <tr>
-                                                            <td colspan="2">Godaddy DDNS - 设置面板</td></tr>
+                                                        <tr><td colspan="2">Godaddy DDNS - 设置面板</td></tr>
                                                     </thead>
                                                     <tr id="switch_tr">
-                                                        <th>
-                                                            <label>开启 Godaddy DDNS</label></th>
+                                                        <th><label>开启 Godaddy DDNS</label></th>
                                                         <td colspan="2">
                                                             <div class="switch_field" style="display:table-cell">
                                                                 <label for="switch">
                                                                     <input id="switch" class="switch" type="checkbox" style="display: none;">
                                                                     <div class="switch_container">
                                                                         <div class="switch_bar"></div>
-                                                                        <div class="switch_circle transition_style">
-                                                                            <div></div>
-                                                                        </div>
+                                                                        <div class="switch_circle transition_style"><div></div></div>
                                                                     </div>
                                                                 </label>
                                                             </div>
@@ -78,64 +73,67 @@
                                                     </tr>
                                                     <tr id="last_act_tr">
                                                         <th>上次运行</th>
-                                                        <td>
-                                                            <% dbus_get_def( "gdddns_last_act", "--"); %></td>
+                                                        <td><% dbus_get_def( "gdddns_last_act", "--"); %></td>
                                                     </tr>
                                                     <tr id="ak_tr">
                                                         <th>Godaddy key</th>
-                                                        <td>
-                                                            <input type="text" id="gdddns_ak" value="<% dbus_get_def(" gdddns_ak ", " "); %>" class="input_ss_table"></td>
+                                                        <td><input type="text" id="gdddns_ak" value="<% dbus_get_def("gdddns_ak", ""); %>" class="input_ss_table"></td>
                                                     </tr>
                                                     <tr id="sk_tr">
                                                         <th>Godaddy secret</th>
-                                                        <td>
-                                                            <input type="password" id="gdddns_sk" value="<% dbus_get_def(" gdddns_sk ", " "); %>" class="input_ss_table"></td>
+                                                        <td><input type="password" id="gdddns_sk" value="<% dbus_get_def("gdddns_sk", ""); %>" class="input_ss_table"></td>
                                                     </tr>
                                                     <tr id="interval_tr">
                                                         <th>检查周期</th>
-                                                        <td>
-                                                            <input type="text" style="width: 2.5em" id="gdddns_interval" value="<% dbus_get_def(" gdddns_interval ", "120 "); %>" class="input_ss_table">s</td></tr>
+                                                        <td><input type="text" style="width: 2.5em" id="gdddns_interval" value="<% dbus_get_def("gdddns_interval", "120"); %>" class="input_ss_table">s</td></tr>
                                                     <tr id="name_tr">
                                                         <th>域名</th>
                                                         <td>
-                                                            <input type="text" style="width: 4em" id="gdddns_name" placeholder="子域名" value="<% dbus_get_def(" gdddns_name ", "home "); %>" class="input_ss_table">.
-                                                            <input type="text" id="gdddns_domain" placeholder="主域名" value="<% dbus_get_def(" gdddns_domain ", "example.com "); %>" class="input_ss_table"></td></tr>
+                                                            <input type="text" style="width: 4em" id="gdddns_name" placeholder="子域名" value="<% dbus_get_def("gdddns_name", "home"); %>" class="input_ss_table">.
+                                                            <input type="text" id="gdddns_domain" placeholder="主域名" value="<% dbus_get_def("gdddns_domain", "example.com"); %>" class="input_ss_table">
+                                                        </td>
+                                                    </tr>
                                                     <tr id="dns_tr">
                                                         <th title="查询域名当前IP时使用的DNS解析服务器，默认为 Godaddy DNS">DNS服务器(?)</th>
                                                         <td>
-                                                            <input id="gdddns_dns" class="input_ss_table" value="<% dbus_get_def(" gdddns_dns ", "NS05.DOMAINCONTROL.COM "); %>"></td>
+                                                            <input id="gdddns_dns" class="input_ss_table" value="<% dbus_get_def(" gdddns_dns ", "NS05.DOMAINCONTROL.COM "); %>">
+                                                        </td>
                                                     </tr>
                                                     <tr id="curl_tr">
                                                         <th title="可自行修改命令行，以获得正确的公网IP。如添加 '--interface vlan2' 以指定多播情况下的端口支持">获得IP命令(?)</th>
                                                         <td>
                                                             <textarea id="gdddns_curl" class="input_ss_table" style="width: 94%; height: 2.4em">
-                                                                <% dbus_get_def( "gdddns_curl", "curl -s whatismyip.akamai.com"); %></textarea>
+                                                                <% dbus_get_def( "gdddns_curl", "curl -s whatismyip.akamai.com"); %>    
+                                                            </textarea>
                                                         </td>
                                                     </tr>
                                                     <tr id="ttl_tr">
                                                         <th title="设置解析TTL，默认10分钟，免费版的范围是600-86400">TTL(?)</th>
                                                         <td>
-                                                            <input id="gdddns_ttl" style="width: 4.5em" class="input_ss_table" value="<% dbus_get_def(" gdddns_ttl ", "600 "); %>">s (1~86400)</td></tr>
+                                                            <input id="gdddns_ttl" style="width: 4.5em" class="input_ss_table" value="<% dbus_get_def("gdddns_ttl", "600"); %>">s (1~86400)
+                                                        </td>
+                                                    </tr>
                                                 </table>
                                                 <div class="apply_gen">
-                                                    <input class="button_gen" type="button" value="提交"></div>
+                                                    <input class="button_gen" type="button" value="提交">
+                                                </div>
                                                 <div style="margin-left:5px;margin-top:10px;margin-bottom:10px">
-                                                    <img src="/images/New_ui/export/line_export.png" /></div>
-                                                <div class="KoolshareBottom" style="margin-top:540px;">论坛技术支持：
+                                                    <img src="/images/New_ui/export/line_export.png" />
+                                                </div>
+                                                <div class="KoolshareBottom" style="margin-top:540px;">
+                                                    论坛技术支持：
                                                     <a href="http://www.koolshare.cn" target="_blank">
                                                         <i>
                                                             <u>www.koolshare.cn</u>
                                                         </i>
-                                                    </a>
-                                                    <br/>Github项目：
+                                                    </a><br/>
+                                                    Github项目：
                                                     <a href="https://github.com/koolshare/koolshare.github.io/tree/acelan_softcenter_ui" target="_blank">
                                                         <i>
                                                             <u>github.com/koolshare</u>
                                                         </i>
-                                                    </a>
-                                                    <br/>Shell by：
-                                                    <i>kyrios</i>, Web by：
-                                                    <i>kyrios</i>
+                                                    </a><br/>
+                                                    Shell by: <i>kyrios</i>, Web by: <i>kyrios</i>
                                                 </div>
                                             </td>
                                         </tr>
@@ -144,92 +142,95 @@
                             </td>
                         </tr>
                     </table>
-                    <!--=====end of Main Content=====--></td>
+                    <!--=====end of Main Content=====-->
+                </td>
             </tr>
         </table>
         <div id="footer"></div>
-        <script>$(function() {
-                show_menu(menu_hook);
-                var enable = "<% dbus_get_def("gdddns_enable ", "0 "); %>";
-                $('#switch').prop('checked', enable === "1");
-                buildswitch();
-                update_visibility();
-                var posting = false;
-                var inputs = ['ak', 'sk', 'name', 'domain', 'interval', 'dns', 'curl', 'ttl'];
-                $('.button_gen').click(function() {
-                    if (posting) return;
-                    posting = true; // save
-                    var data = {
-                        gdddns_enable: $('#switch').prop('checked') | 0,
-                        action_mode: ' Refresh ',
-                        current_page: 'Module_gdddns.asp',
-                        next_page: 'Module_gdddns.asp',
-                        SystemCmd: 'gdddns_config.sh'
-                    };
-                    for (var i = 0; i < inputs.length; i++) {
-                        var key = 'gdddns_' + inputs[i];
-                        data[key] = $(key).val()
-                    }
-                    $.ajax({
-                        type: 'POST',
-                        url: 'applydb.cgi?p=gdddns_',
-                        data: $.param(data)
-                    }).then(function() {
-                        posting = false;
-                        alert('saved');
-                    },
-                    function() {
-                        posting = false;
-                        alert('failed');
+            <script>
+                $(function() {
+                    show_menu(menu_hook);
+                    var enable = "<% dbus_get_def("gdddns_enable", "0"); %>";
+                    $('#switch').prop('checked', enable === "1");
+                    buildswitch();
+                    update_visibility();
+
+                    var posting = false;
+                    var inputs = ['ak', 'sk', 'name', 'domain', 'interval', 'dns', 'curl', 'ttl'];
+                    $('.button_gen').click(function() {
+                        if (posting) return;
+                        posting = true; // save
+                        var data = {
+                            gdddns_enable: $('#switch').prop('checked') | 0,
+                            action_mode: 'Refresh',
+                            current_page: 'Module_gdddns.asp',
+                            next_page: 'Module_gdddns.asp',
+                            SystemCmd: 'gdddns_config.sh'
+                        };
+                        for (var i = 0; i < inputs.length; i++) {
+                            var key = 'gdddns_' + inputs[i];
+                            data[key] = $(key).val()
+                        }
+                        $.ajax({
+                            type: 'POST',
+                            url: 'applydb.cgi?p=gdddns_',
+                            data: $.param(data)
+                        }).then(function() {
+                            posting = false;
+                            alert('saved');
+                        },
+                        function() {
+                            posting = false;
+                            alert('failed');
+                        })
                     })
                 })
-            })
 
-            var enable_ss = "<% nvram_get("enable_ss "); %>";
-            var enable_soft = "<% nvram_get("enable_soft "); %>";
-            function menu_hook(title, tab) {
-                if (enable_ss == "1" && enable_soft == "1") {
-                    tabtitle[17] = new Array("", "gdddns");
-                    tablink[17] = new Array("", "Module_gdddns.asp");
-                } else {
-                    tabtitle[16] = new Array("", "gdddns");
-                    tablink[16] = new Array("", "Module_gdddns.asp");
+                var enable_ss = "<% nvram_get("enable_ss"); %>";
+                var enable_soft = "<% nvram_get("enable_soft"); %>";
+                function menu_hook(title, tab) {
+                    if (enable_ss == "1" && enable_soft == "1") {
+                        tabtitle[17] = new Array("", "gdddns");
+                        tablink[17] = new Array("", "Module_gdddns.asp");
+                    } else {
+                        tabtitle[16] = new Array("", "gdddns");
+                        tablink[16] = new Array("", "Module_gdddns.asp");
+                    }
                 }
-            }
 
-            function reload_Soft_Center() {
-                location.href = "/Main_Soft_center.asp";
-            }
-
-            function buildswitch() {
-                $("#switch").click(function() {
-                    update_visibility();
-                });
-            }
-
-            function update_visibility() {
-                if (document.getElementById('switch').checked) {
-                    document.getElementById("last_act_tr").style.display = "";
-                    document.getElementById("ak_tr").style.display = "";
-                    document.getElementById("sk_tr").style.display = "";
-                    document.getElementById("interval_tr").style.display = "";
-                    document.getElementById("name_tr").style.display = "";
-                    document.getElementById("dns_tr").style.display = "";
-                    document.getElementById("curl_tr").style.display = "";
-                    document.getElementById("ttl_tr").style.display = "";
-
-                } else {
-                    document.getElementById("last_act_tr").style.display = "none";
-                    document.getElementById("ak_tr").style.display = "none";
-                    document.getElementById("sk_tr").style.display = "none";
-                    document.getElementById("interval_tr").style.display = "none";
-                    document.getElementById("name_tr").style.display = "none";
-                    document.getElementById("dns_tr").style.display = "none";
-                    document.getElementById("curl_tr").style.display = "none";
-                    document.getElementById("ttl_tr").style.display = "none";
+                function reload_Soft_Center() {
+                    location.href = "/Main_Soft_center.asp";
                 }
-            }
-        </script>
+
+                function buildswitch() {
+                    $("#switch").click(function() {
+                        update_visibility();
+                    });
+                }
+
+                function update_visibility() {
+                    if (document.getElementById('switch').checked) {
+                        document.getElementById("last_act_tr").style.display = "";
+                        document.getElementById("ak_tr").style.display = "";
+                        document.getElementById("sk_tr").style.display = "";
+                        document.getElementById("interval_tr").style.display = "";
+                        document.getElementById("name_tr").style.display = "";
+                        document.getElementById("dns_tr").style.display = "";
+                        document.getElementById("curl_tr").style.display = "";
+                        document.getElementById("ttl_tr").style.display = "";
+
+                    } else {
+                        document.getElementById("last_act_tr").style.display = "none";
+                        document.getElementById("ak_tr").style.display = "none";
+                        document.getElementById("sk_tr").style.display = "none";
+                        document.getElementById("interval_tr").style.display = "none";
+                        document.getElementById("name_tr").style.display = "none";
+                        document.getElementById("dns_tr").style.display = "none";
+                        document.getElementById("curl_tr").style.display = "none";
+                        document.getElementById("ttl_tr").style.display = "none";
+                    }
+                }
+            </script>
     </body>
 
 </html>
