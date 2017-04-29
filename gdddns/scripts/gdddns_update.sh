@@ -39,7 +39,7 @@ enc() {
 update_record() {
     curl -kLsX PUT -H "Authorization: sso-key $gdddns_ak:$gdddns_sk" \
         -H "Content-type: application/json" "https://api.godaddy.com/v1/domains/$gdddns_domain/records/A/$(enc "$gdddns_name")" \
-        -d "{\"data\":\"$ip\",\"ttl\":$gdddns_ttl}")
+        -d "{\"data\":\"$ip\",\"ttl\":$gdddns_ttl}"
 }
 
 
@@ -51,7 +51,9 @@ if [ "$?" -eq "0" ]; then
         dbus set gdddns_last_act="$now: skipped($ip)"
         exit 0
     else
+        echo "changing"
         update_record
+        dbus set gdddns_last_act="$now: changed($ip)"
     fi 
 fi
 
