@@ -15,7 +15,7 @@ die () {
 }
 
 [ "$gdddns_curl" = "" ] && gdddns_curl="curl -s whatismyip.akamai.com"
-[ "$gdddns_dns" = "" ] && gdddns_dns="NS05.DOMAINCONTROL.COM"
+[ "$gdddns_dns" = "" ] && gdddns_dns="ns05.domaincontrol.com"
 [ "$gdddns_ttl" = "" ] && gdddns_ttl="600"
 
 ip=`$gdddns_curl 2>&1` || die "$ip"

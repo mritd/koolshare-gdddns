@@ -96,7 +96,7 @@
                                                     <tr id="dns_tr">
                                                         <th title="查询域名当前IP时使用的DNS解析服务器，默认为 Godaddy DNS">DNS服务器(?)</th>
                                                         <td>
-                                                            <input id="gdddns_dns" class="input_ss_table" value="<% dbus_get_def(" gdddns_dns ", "NS05.DOMAINCONTROL.COM "); %>">
+                                                            <input id="gdddns_dns" class="input_ss_table" value="<% dbus_get_def("gdddns_dns", "8.8.8.8"); %>">
                                                         </td>
                                                     </tr>
                                                     <tr id="curl_tr">
