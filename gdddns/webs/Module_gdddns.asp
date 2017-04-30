@@ -46,7 +46,7 @@
                                                 <div class="SimpleNote" id="head_illustrate">
                                                     <i></i>
                                                     <em>Godaddy DDNS</em> 是一款基于Godaddy 云解析的私人 DDNS 解决方案。
-                                                    <a href='https://mritd.me' target='_blank'>
+                                                    <a href='https://github.com/mritd/koolshare-gdddns' target='_blank'>
                                                         <i>&nbsp;&nbsp;
                                                             <u>点击查看插件详情</u>
                                                         </i>
@@ -184,16 +184,9 @@
                     })
                 })
 
-                var enable_ss = "<% nvram_get("enable_ss"); %>";
-                var enable_soft = "<% nvram_get("enable_soft"); %>";
                 function menu_hook(title, tab) {
-                    if (enable_ss == "1" && enable_soft == "1") {
-                        tabtitle[17] = new Array("", "gdddns");
-                        tablink[17] = new Array("", "Module_gdddns.asp");
-                    } else {
-                        tabtitle[16] = new Array("", "gdddns");
-                        tablink[16] = new Array("", "Module_gdddns.asp");
-                    }
+                    tabtitle[16] = new Array("", "Godaddy DDNS");
+                    tablink[16] = new Array("", "Module_gdddns.asp");
                 }
 
                 function reload_Soft_Center() {
