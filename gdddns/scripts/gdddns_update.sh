@@ -57,12 +57,3 @@ if [ "$?" -eq "0" ]; then
     fi 
 fi
 
-
-if [ "$ip" == "$current_ip" ];then
-    dbus ram gdddns_last_act="$now: failed"
-    echo "Public IP not change!"
-else
-    update_record
-    dbus ram gdddns_last_act="$now: failed"
-    echo "DDNS Public IP changed!"
-fi
