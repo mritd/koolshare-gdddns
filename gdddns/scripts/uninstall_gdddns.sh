@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# 不存在则不执行卸载
+if [ -f /koolshare/webs/Module_gdddns.asp ];then
+    exit 0;
+fi
+
 rm /koolshare/icon-gdddns.png
 rm /koolshare/webs/Module_gdddns.asp
 rm /koolshare/scripts/gdddns_config.sh
