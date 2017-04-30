@@ -175,11 +175,11 @@
                             data: $.param(data)
                         }).then(function() {
                             posting = false;
-                            alert('saved');
+                            alert('配置已经保存....');
                         },
                         function() {
                             posting = false;
-                            alert('failed');
+                            alert('配置保存失败!');
                         })
                     })
                 })
