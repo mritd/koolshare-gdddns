@@ -39,23 +39,11 @@
                                                 <tbody>
                                                     <tr>
                                                         <td bgcolor="#4D595D" colspan="3" valign="top">
-                                                            <div>
-                                                                &nbsp;
-                                                            </div>
-                                                            <div style="padding-top: 12px" class="formfonttitle">
-                                                                Godaddy DDNS - 设置
-                                                            </div>
-                                                            <div style="float:right; width:15px; height:25px;margin-top:10px">
-                                                                <img id="return_btn" onclick="reload_Soft_Center();" align="right" style="cursor:pointer;position:absolute;margin-left:-30px;margin-top:-25px;" title="返回软件中心" src="/images/backprev.png" onmouseover="this.src='/images/backprevclick.png'" onmouseout="this.src='/images/backprev.png'" />
-                                                            </div>
-                                                            <div style="margin-left:5px;margin-top:10px;margin-bottom:10px">
-                                                                <img src="/images/New_ui/export/line_export.png" />
-                                                            </div>
-                                                            <div class="SimpleNote" id="head_illustrate">
-                                                                <i></i>
-                                                                <em>Godaddy DDNS</em>是基于 Godaddy API 实现的个人 DDNS 工具。
-                                                                <a href="https://github.com/mritd/koolshare-gdddns" target="_blank"><i>&nbsp;&nbsp;<u>点击查看插件详情</u></i></a>
-                                                            </div>
+                                                            <div>&nbsp;</div>
+                                                            <div style="float:left;" class="formfonttitle" style="padding-top: 12px">Godaddy DDNS - 设置</div>
+                                                            <div style="float:right; width:15px; height:25px;margin-top:10px"><img id="return_btn" onclick="reload_Soft_Center();" align="right" style="cursor:pointer;position:absolute;margin-left:-30px;margin-top:-25px;" title="返回软件中心" src="/images/backprev.png" onMouseOver="this.src='/images/backprevclick.png'" onMouseOut="this.src='/images/backprev.png'"></img></div>
+                                                            <div style="margin-left:5px;margin-top:10px;margin-bottom:10px"><img src="/images/New_ui/export/line_export.png"></div>
+                                                            <div class="SimpleNote" id="head_illustrate"><i></i><em>Godaddy DDNS</em>是基于 Godaddy API 实现的个人 DDNS 工具。<a href='https://github.com/mritd/koolshare-gdddns' target='_blank'><i>&nbsp;&nbsp;<u>点击查看插件详情</u></i></a></div>
                                                             <table style="margin:20px 0px 0px 0px;" width="100%" border="1" align="center" cellpadding="4" cellspacing="0" bordercolor="#6b8fa3" class="FormTable">
                                                                 <thead>
                                                                     <tr>
