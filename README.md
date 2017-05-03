@@ -61,9 +61,9 @@ koolshare
 下差创建了一个 ss 的目录)；**
 
 ### 插件更新推送机制
-- 插件git地址需要先被 https://github.com/koolshare/koolshare.github.io/blob/acelan_softcenter_ui/softcenter/modules.json 该json收录；
+- 插件git地址需要先被 [modules.json](https://github.com/koolshare/koolshare.github.io/blob/acelan_softcenter_ui/softcenter/modules.json) 收录；
 - 插件作者提交插件相关更新后，更改config.json.js内的版本号；
-- 插件作者运行python build.py，会自动生成插件安装包，插件备份
+- 插件作者运行 python build.py，会自动生成插件安装包，插件备份
 
 
 
