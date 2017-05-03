@@ -60,6 +60,11 @@ koolshare
 都会被释放到 `/koolshare` 目录下的相应目录中(安装脚本控制)，除非特殊情情况，比如 shadowsocks 文件很多所以单独创建了文件件(在 `/koolshare`
 下差创建了一个 ss 的目录)；**
 
+### 插件更新推送机制
+- 插件git地址需要先被 https://github.com/koolshare/koolshare.github.io/blob/acelan_softcenter_ui/softcenter/modules.json 该json收录；
+- 插件作者提交插件相关更新后，更改config.json.js内的版本号；
+- 插件作者运行python build.py，会自动生成插件安装包，插件备份
+
 
 
 
