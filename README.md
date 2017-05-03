@@ -64,6 +64,9 @@ koolshare
 - 插件git地址需要先被 [modules.json](https://github.com/koolshare/koolshare.github.io/blob/acelan_softcenter_ui/softcenter/modules.json) 收录；
 - 插件作者提交插件相关更新后，更改config.json.js内的版本号；
 - 插件作者运行 python build.py，会自动生成插件安装包，插件备份
+- koolshare插件中心服务器会每隔5分钟检查一次该项目config.json.js内的版本号，如果有更新，则会拉取一份到中转服务
+- 同时会将config.json.js的内容插入[app.json.js](https://koolshare.ngrok.wang/softcenter/app.json.js)
+- 用户访问软件中心请求[app.json.js](https://koolshare.ngrok.wang/softcenter/app.json.js)，即可知道插件的状态
 
 
 
