@@ -170,11 +170,10 @@
                     })
                 })
             })
-            
 
             function menu_hook(title, tab) {
-                tabtitle[16] = new Array("", "Godaddy DDNS");
-                tablink[16] = new Array("", "Module_gdddns.asp");
+                tabtitle[tabtitle.length -1] = new Array("", "Godaddy DDNS");
+                tablink[tablink.length -1] = new Array("", "Module_gdddns.asp");
             }
             
             function reload_Soft_Center(){
