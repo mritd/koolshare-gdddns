@@ -39,7 +39,7 @@ enc() {
 update_record() {
     curl -kLsX PUT -H "Authorization: sso-key $gdddns_key:$gdddns_secret" \
         -H "Content-type: application/json" "https://api.godaddy.com/v1/domains/$gdddns_domain/records/A/$(enc "$gdddns_name")" \
-        -d "{\"data\":\"$ip\",\"ttl\":$gdddns_ttl}"
+        -d "[{\"data\":\"$ip\",\"ttl\":$gdddns_ttl}]"
 }
 
 
